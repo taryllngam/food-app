@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+information {
+    @apply h-screen	w-screen flex flex-col
+}
+
+input {
+    @apply w-16	h-3	border-sky-500
+}

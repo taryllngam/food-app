@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @layer scroll-m-0 croll-p-0;
+}
+
+
+
+.app-nav {
+    @apply h-16  flex flex-row  gap-20  items-center justify-end	pr-9	bg-red-400		text-white text-xl
+}

@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.food img {
+    @apply w-80	h-52
+}
+
+.head {
+    @apply flex self-center	justify-center my-6 text-3xl text-red-400 
+}
+
+.wrap {
+    @apply flex flex-wrap gap-9 justify-between mx-9 pb-20  
+}
+
+.food .foodStuffs{
+    @apply text-xl border  border-yellow-800 p-4
+}
+
+.btn {
+    @apply border  border-yellow-800 rounded p-2 bg-white dark:md:hover:bg-gray-200
+}
+
+.headTag {
+    @apply before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-red-400 relative inline-block 
+}
+
+.nameTag {
+    @apply relative text-white
+}
