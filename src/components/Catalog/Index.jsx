@@ -26,8 +26,8 @@ export default function Catalog() {
 						<div className="foodStuffs">
 						<img src={food.image} alt="" />
 						<p>NAME: {food.name}</p>
-						<p>PRICE:</p>
-						<button className="btn">Details</button>
+						<p>PRICE:{food.price}</p>
+						<button className="btn" >Details</button>
 						</div>
 					</div>
 					</div>

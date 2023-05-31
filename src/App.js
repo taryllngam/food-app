@@ -1,5 +1,6 @@
 import './App.css';
 import Landing from "./Landing-page/index"
+import Billing from './Billing-form';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import Details from './Details';
@@ -47,7 +48,8 @@ function App() {
  <BrowserRouter>
     <Routes>
       <Route exact path='/' element={<Landing />} />
-      <Route exact path='/details/:id' element={<Details />} />
+      <Route exact path='/details/:id' element={<Details  />} />
+      <Route exact path='/billing' element={<Billing />} />
     </Routes>
   </BrowserRouter>
  </FoodContext.Provider>
