@@ -1,5 +1,7 @@
 import React from "react"
+import img13 from "../../assets/pic.png"
 import "../Hero/style.css"
+
 
 export default function Hero() {  
       return (
@@ -18,7 +20,7 @@ export default function Hero() {
         </blockquote>
     </div>
     <div>
-        <img src= {'assets/pic.png'} alt="" />
+        <img src= {img13} alt="" />
       </div>
   </div>
   )

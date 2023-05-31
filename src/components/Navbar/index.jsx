@@ -1,5 +1,7 @@
 import React from "react"
 import "../Navbar/style.css"
+import { FaUtensils } from 'react-icons/fa';
+
 
  export default function Nav() {
     return (
@@ -8,6 +10,7 @@ import "../Navbar/style.css"
           <a href="#home">Home</a>
           <a href="#reviews">Reviews</a>
           <a href="#contact">Contact</a>
+          <FaUtensils className="food" />
         </div>
       
       </div>
