@@ -17,6 +17,11 @@ import img9 from "../src/assets/boeuf.png"
 import img10 from "../src/assets/ramen.png"
 import img11 from "../src/assets/pizza.png"
 import img12 from "../src/assets/Pierogi.png"
+import Payment from './Payment';
+import SignUp from './components/SignUp';
+import Admin from './components/Admin';
+
+
 
 
 
@@ -49,7 +54,12 @@ function App() {
     <Routes>
       <Route exact path='/' element={<Landing />} />
       <Route exact path='/details/:id' element={<Details  />} />
-      <Route exact path='/billing' element={<Billing />} />
+      <Route exact path='/billing/:id' element={<Billing />} />
+      <Route exact path='/payment/:id' element={<Payment />} />
+      <Route exact path='/signup' element={<SignUp />} />
+      <Route exact path='/admin' element={<Admin />} />
+
+
     </Routes>
   </BrowserRouter>
  </FoodContext.Provider>

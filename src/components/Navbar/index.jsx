@@ -8,11 +8,11 @@ import { FaUtensils } from 'react-icons/fa';
         <div className="navBar">
         <div className="app-nav">
           <a href="#home">Home</a>
-          <a href="#reviews">Reviews</a>
+          <a href="#about">About</a>
           <a href="#contact">Contact</a>
+          <a href="#signup">SignUp</a>
           <FaUtensils className="food" />
         </div>
-      
       </div>
     )
  }

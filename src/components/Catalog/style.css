@@ -15,11 +15,11 @@
 }
 
 .food .foodStuffs{
-    @apply text-xl border  border-yellow-800 p-4
+    @apply text-xl border  border-yellow-800 p-4  text-black
 }
 
 .btn {
-    @apply border  border-yellow-800 rounded p-2 bg-white dark:md:hover:bg-gray-200
+    @apply border  border-yellow-800 rounded p-2 bg-red-400
 }
 
 .headTag {
