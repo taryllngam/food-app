@@ -7,7 +7,9 @@ import { FoodContext } from "../../context/FoodContext";
 
 export default function Catalog() {
 	const navigate = useNavigate()
-	const foodStorage = useContext(FoodContext)
+	// const foods = (JSON.parse(localStorage.getItem("foodStorage")));
+
+	const {foodItems} = useContext(FoodContext)
 	return (
 		<>
 		<div className="head">
@@ -16,7 +18,7 @@ export default function Catalog() {
 		</div>
 		</div>
 		<div className="wrap">
-			{foodStorage?.map((food) => {
+			{foodItems?.map((food) => {
 				return (
 					
 					<div className="foods" key={food.name} onClick={() => {

@@ -11,8 +11,8 @@ export default function Payment() {
   const { meta, getCardNumberProps, getExpiryDateProps, getCVCProps } = usePaymentInputs();
   let { id } = useParams();
   const navigate = useNavigate();
-  const foodStorage = useContext(FoodContext);
-  const food = foodStorage.find((ele) => ele.id == id);
+	const {foodItems} = useContext(FoodContext)
+  const food = foodItems.find((ele) => ele.id == id);
 
   return (
     <div className='dets'>
