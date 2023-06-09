@@ -1,6 +1,8 @@
 import React from "react"
 import "../Navbar/style.css"
 import { FaUtensils } from 'react-icons/fa';
+import { Link } from "react-router-dom";
+import { Admin } from "../Admin"
 
 
  export default function Nav() {
@@ -10,7 +12,8 @@ import { FaUtensils } from 'react-icons/fa';
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
-          <a href="#signup">SignUp</a>
+          <Link to='admin'>Admin</Link>
+
           <FaUtensils className="food" />
         </div>
       </div>

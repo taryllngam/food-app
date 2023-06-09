@@ -1,31 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { FoodContext } from "../context/FoodContext";
 import { useNavigate } from "react-router";
 import "../Details/style.css";
+import { FoodContext } from "../context/FoodContext";
+import { useState } from "react";
 
 export default function Details() {
-  let { id } = useParams();
+  const params = useParams();
   const navigate = useNavigate();
-  const {foodItems} = useContext(FoodContext);
-  const food = foodItems.find((ele) => ele.id == id);
-  console.log(id);
+  const { value } = useContext(FoodContext);
+  const [currentFood, setcurrentFood] = useState();
+
+
+  useEffect(() => {
+    const food = value.find((ele) => ele.id === +params.id);
+    setcurrentFood(food)
+    console.log(food, params);
+  }, []);
+
   return (
     <div className="display">
       <div className="display1">
         <div>
-          <img src={food?.image} />
+          <img src={currentFood?.image} />
         </div>
         <div className="description">
-          <h1 className="names"> {food?.name}</h1>
+          <h1 className="names"> {currentFood?.name}</h1>
           <h1>
             {" "}
-            <span className="describe">DESCRIPTION:</span> {food?.description}
+            <span className="describe">DESCRIPTION:</span> {currentFood?.description}
           </h1>
-          <h1 className="price">PRICE: {food?.price}</h1>
+          <h1 className="price">PRICE: {currentFood?.price}</h1>
           <button
             onClick={() => {
-              navigate(`/payment/${id}`);
+              navigate(`/payment/${params.id}`);
             }}
           >
             Purchase

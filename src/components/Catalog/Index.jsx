@@ -3,13 +3,14 @@ import { useNavigate } from "react-router";
 import '../Catalog/style.css'
 import Details from "../../Details";
 import { FoodContext } from "../../context/FoodContext";
+import { useFoodItems } from "../../context/FoodContext";
 
 
 export default function Catalog() {
 	const navigate = useNavigate()
 	// const foods = (JSON.parse(localStorage.getItem("foodStorage")));
 
-	const {foodItems} = useContext(FoodContext)
+	const {value} = useFoodItems()
 	return (
 		<>
 		<div className="head">
@@ -18,7 +19,7 @@ export default function Catalog() {
 		</div>
 		</div>
 		<div className="wrap">
-			{foodItems?.map((food) => {
+			{value?.map((food) => {
 				return (
 					
 					<div className="foods" key={food.name} onClick={() => {

@@ -20,7 +20,7 @@ export default function Hero() {
         </blockquote>
     </div>
     <div>
-        <img src= {img13} alt="" />
+        <img className="hero-image" src= {img13} alt="" />
       </div>
   </div>
   )

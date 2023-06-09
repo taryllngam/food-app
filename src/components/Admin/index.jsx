@@ -12,7 +12,7 @@
 //     //     errors.email = 'Required';
 //     //   } else if (
 //     //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.)
-//     //   ) 
+//     //   )
 //     //   return errors;
 //     // }}
 //     const { foodStorage, setFoodStorage } = useContext(FoodContext);
@@ -22,9 +22,9 @@
 //     <div className='big-container'>
 //       <div className='usersInfo'>user dashboard</div>
 //       <div className='inputInfo'>
-//        <Formik 
+//        <Formik
 //       initialValues={{ Image: '', Name: '', Price: '', Description: '' }}
-  
+
 //       onSubmit={(values, { setSubmitting }) => {
 //         setTimeout(() => {
 //             localStorage.setItem('Admin', JSON.stringify(values));
@@ -46,18 +46,18 @@
 //         <form onSubmit={handleSubmit}>
 //           <div className='display2'>
 //           <span>IMAGE</span>
-//             <input 
-//             type="file"  
-//             name="file"  
+//             <input
+//             type="file"
+//             name="file"
 //             onChange={handleChange}
 //             value={values.file}/>
 //             </div>
 
 //             <div className='display2'>
 //             <span>Name</span>
-//             <input 
+//             <input
 //             type="name"
-//             name="Name"  
+//             name="Name"
 //             onChange={handleChange}
 //             value={values.Name}/>
 // </div>
@@ -92,16 +92,19 @@
 //   )
 // }
 
-
-
 import React from "react";
+import { useEffect } from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import { GiCancel } from "react-icons/gi";
 import { Navigate, useNavigate } from "react-router";
-
+import { FoodContext } from "../../context/FoodContext";
+import "../Admin/style.css";
 export default function Admin() {
-  const [localData, setLocalData] = useState(JSON.parse(localStorage.getItem("foodStorage")));
-  const navigate = useNavigate
+  const { value, setValue } = useContext(FoodContext);
+
+  const [localData, setLocalData] = useState(value);
+  const navigate = useNavigate;
   const [showForm, setShowForm] = useState(false);
   const [showAddForm, setShowAddForm] = useState(false);
   const [foodStorage, setfoodStorage] = useState({
@@ -142,45 +145,64 @@ export default function Admin() {
     setfoodStorage((prev) => ({ ...prev, image: base64 }));
   };
 
-  const handleDelete = (id)=>{
-    const removeItem = localData.filter((item)=>{
-      return item.id !== id
-    })
-    setfoodStorage(removeItem)
-    console.log(localData)
-  }
+  const handleDelete = (id) => {
+    const removeItem = localData.filter((item) => {
+      return item.id !== id;
+    });
+    setfoodStorage(removeItem);
+    console.log(localData);
+  };
+
+  const clearForm = (event) => {
+    const image = event.target.image;
+    image.value = "";
+    setfoodStorage({
+      name: "",
+      price: "",
+      image: "",
+      detials: "",
+    });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const localData = JSON.parse(localStorage.getItem("foodStorage")) || [];
+    console.log('this item', foodStorage)
+    setValue(foodStorage);
+    // const localData = JSON.parse(localStorage.getItem("foodStorage")) || [];
+    // console.log(localData);
 
-    localStorage.setItem(
-      "foodStorage",
-      JSON.stringify([...localData, foodStorage])
-    );
+    // localStorage.setItem(
+    //   "foodStorage",
+    //   JSON.stringify([...localData, foodStorage])
+    // );
+
+    clearForm(event);
   };
 
-
-
+  useEffect(() => {
+    setLocalData(value)
+  }, [value])
 
   return (
     <div className="admin-dashboard">
       <div className="profile-section">
-        <div>
+        <div className="profile">
           <img
             src="https://img.freepik.com/free-icon/user_318-159711.jpg"
             alt=""
             className="avatar"
           />
-          <h2>NGAM TARYLL</h2>
-          <p>taryllngam@gmail.com</p>
+          <div>
+            <h2>NGAM TARYLL</h2>
+            <p>taryllngam@gmail.com</p>
+          </div>
+          <button
+            className="profileBtn"
+            onClick={() => setShowForm((prev) => !prev)}
+          >
+            Edit Profile
+          </button>
         </div>
-        <button
-          className="profileBtn"
-          onClick={() => setShowForm((prev) => !prev)}
-        >
-          Edit Profile
-        </button>
 
         {showForm && (
           <form className="updateForm" action="submit">
@@ -205,9 +227,9 @@ export default function Admin() {
         )}
       </div>
 
-      <div >
+      <div>
         <div>
-          <div>
+          <div className="dashboard">
             <h1>Dashboard</h1>
 
             <button
@@ -265,38 +287,49 @@ export default function Admin() {
 
               <button
                 className="addBt"
-                onClick={() => setShowAddForm(!showAddForm)
-                }
+                onClick={() => setShowAddForm(!showAddForm)}
               >
                 cancel
               </button>
             </div>
           </form>
         )}
- <>
-    <div className="foodCards ">
-      {localData?.map((foodStorage) => {
+        <>
+          <div className="foodCards ">
+            {localData?.map((foodStorage) => {
+              // handle click navigation to product detail page.
+              // const handDitails = () =>{(onClick) => {
+              //   Navigate(`/details/${foodStorage.id}`)}}
 
-        // handle click navigation to product detail page.
-        // const handDitails = () =>{(onClick) => {
-        //   Navigate(`/details/${foodStorage.id}`)}}
-
-        return (
-          <div key={foodStorage.name} className="foodStorage border border-yellow-700  h-1/4 p-2 text-center rounded justify-center items-center object-scale-down"  >
-            <img src={foodStorage.image} alt={foodStorage.name} className="card h-24 items-center mx-auto" />
-            <h3 className="fItern text-yellow-600"><span>NAME: </span>{foodStorage.name}</h3>
-            <p><span>PRICE: </span>${foodStorage.price}</p>
-            <p><span>DESCRIPTION: </span>{foodStorage.detials}</p>
-            <div className="flex  justify-between">
-              <button className="cardBtn" onClick={handleDelete}>Delete</button>
-
-            </div>
+              return (
+                <div key={foodStorage.name} className="catalog">
+                  <img
+                    src={foodStorage.image}
+                    alt={foodStorage.name}
+                    className="card h-24 items-center mx-auto"
+                  />
+                  <h3 className="fItern text-yellow-600">
+                    <span>NAME: </span>
+                    {foodStorage.name}
+                  </h3>
+                  <p>
+                    <span>PRICE: </span>${foodStorage.price}
+                  </p>
+                  <p>
+                    <span>DESCRIPTION: </span>
+                    {foodStorage.detials}
+                  </p>
+                  <div className="flex  justify-between">
+                    <button className="cardBtn" onClick={handleDelete}>
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-        )
-      })}
-    </div>
-    </>
+        </>
       </div>
     </div>
   );
-};
+}

@@ -1,13 +1,13 @@
-import './App.css';
-import Landing from "./Landing-page/index"
-import Billing from './Billing-form';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
-import Details from './Details';
-import { FoodContext } from './context/FoodContext';
-import Payment from './Payment';
-import SignUp from './components/SignUp';
-import Admin from './components/Admin';
+import "./App.css";
+import Landing from "./Landing-page/index";
+import Billing from "./Billing-form";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import Details from "./Details";
+import { FoodProvider, useLocalStorage } from "./context/FoodContext";
+import Payment from "./Payment";
+import SignUp from "./components/SignUp";
+import Admin from "./components/Admin";
 
 // import img1 from "../src/assets/burito.png"
 // import img2 from "../src/assets/cheeseburger.png"
@@ -22,7 +22,6 @@ import Admin from './components/Admin';
 // import img11 from "../src/assets/pizza.png"
 // import img12 from "../src/assets/Pierogi.png"
 function App() {
-
   // const importImage = (name) => {
   //   return `assets/${name}.png`
   // }
@@ -41,7 +40,8 @@ function App() {
   //   { id: 11, name: "Pizza", image: img11, description: "Pizza has three main elements: crust, sauce, and toppings. All of them have a variety of preparation methods. Crust: Traditional pizza crust is similar to bread dough" , price: "$100"},
   //   { id: 12, name: "Pierogi", image: img12, description: "Pierogi are filled dumplings made by wrapping unleavened dough around a savory or sweet filling and cooking in boiling water." , price: "$100"},
   // ]
-  const [foodItems, setfoodItems] = useState(JSON.parse(localStorage.getItem("foodStorage")));
+  // const [foodItems, setfoodItems] = useState(JSON.parse(localStorage.getItem("foodStorage")));
+  const { value, setValue } = useLocalStorage("foodStorage", []);
 
   // const [foodStorage, setFoodStorage] = useState([{
   //   name: '',
@@ -49,25 +49,22 @@ function App() {
   //   price: '',
   //   desc: ''
   // }])
-console.log(foodItems)
- return (
-  <div className="App">
- <FoodContext.Provider value={ {foodItems, setfoodItems} }>
- <BrowserRouter>
-    <Routes>
-      <Route exact path='/' element={<Landing />} />
-      <Route exact path='/details/:id' element={<Details  />} />
-      <Route exact path='/billing/:id' element={<Billing />} />
-      <Route exact path='/payment/:id' element={<Payment />} />
-      <Route exact path='/signup' element={<SignUp />} />
-      <Route exact path='/admin' element={<Admin />} />
-
-
-    </Routes>
-  </BrowserRouter>
- </FoodContext.Provider>
-</div>
- )
+  return (
+    <div className="App">
+      <FoodProvider value={{ value, setValue }}>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<Landing />} />
+            <Route exact path="/details/:id" element={<Details />} />
+            <Route exact path="/billing/:id" element={<Billing />} />
+            <Route exact path="/payment/:id" element={<Payment />} />
+            <Route exact path="/signup" element={<SignUp />} />
+            <Route exact path="/admin" element={<Admin />} />
+          </Routes>
+        </BrowserRouter>
+      </FoodProvider>
+    </div>
+  );
 }
 
 export default App;
