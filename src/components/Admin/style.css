@@ -13,43 +13,39 @@
 }
 
 .profile-section {
+    width: 100vw;
     height: 100vh;
-    width: 10vw;
     display: flex;
     flex-direction: column;
 }
 
 .profile {
     height: 50vh;
-    width: 18vw;
+    width: 100vw;
     display: flex;
-    gap: 1rem;
-    align-items: center;
+    gap: 20px;
     flex-direction: column;
-    border: 1px solid black;
     @apply	p-4	bg-red-400		text-white text-xl
 
 }
 
 .avatar {
-    width: 10vw;
+    width: 20vw;
 }
 
 
-img {
-    width: 20vw; 
+.food-image {
+    width: 15vw; 
 }
 
 .foodCards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2%;
-    padding: 2%;
+    @apply flex flex-wrap gap-3 justify-between mx-9 pt-20  
 }
 
 .catalog {
     padding: 2%;
-    border: 1px solid black;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 20vw;
 }
 
 
@@ -60,5 +56,9 @@ img {
 }
 
 .dashboard {
-    @apply	p-4	bg-red-400		text-white text-xl
+    @apply	p-4			text-black text-xl
+}
+
+.blur {
+    backdrop-filter: blur(5px);
 }

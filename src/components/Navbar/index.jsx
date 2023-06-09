@@ -12,7 +12,7 @@ import { Admin } from "../Admin"
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
-          <Link to='admin'>Admin</Link>
+          <Link to='signup'>Admin</Link>
 
           <FaUtensils className="food" />
         </div>

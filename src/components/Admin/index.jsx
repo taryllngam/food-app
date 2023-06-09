@@ -114,6 +114,8 @@ export default function Admin() {
     image: "",
     detials: "",
   });
+  const Data = JSON.parse(localStorage.getItem("userInfo"));
+  console.log(Data);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -145,12 +147,15 @@ export default function Admin() {
     setfoodStorage((prev) => ({ ...prev, image: base64 }));
   };
 
-  const handleDelete = (id) => {
-    const removeItem = localData.filter((item) => {
-      return item.id !== id;
+  const handleDelete = (name) => {
+    const localData = JSON.parse(localStorage.getItem("foodStorage"));
+    localStorage.setItem("localData", JSON.stringify('setfoodStorage'));
+
+    const update = localData?.filter((item) => {
+      return item.name !== name;
     });
-    setfoodStorage(removeItem);
-    console.log(localData);
+    localStorage.setItem("setfoodStorage", JSON.stringify(update));
+    setValue("");
   };
 
   const clearForm = (event) => {
@@ -166,7 +171,7 @@ export default function Admin() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('this item', foodStorage)
+    console.log("this item", foodStorage);
     setValue(foodStorage);
     // const localData = JSON.parse(localStorage.getItem("foodStorage")) || [];
     // console.log(localData);
@@ -180,30 +185,32 @@ export default function Admin() {
   };
 
   useEffect(() => {
-    setLocalData(value)
-  }, [value])
+    setLocalData(value);
+  }, [value]);
 
   return (
     <div className="admin-dashboard">
+     
       <div className="profile-section">
         <div className="profile">
-          <img
-            src="https://img.freepik.com/free-icon/user_318-159711.jpg"
-            alt=""
-            className="avatar"
-          />
+          <img src={Data.image} alt="" className="avatar" />
           <div>
-            <h2>NGAM TARYLL</h2>
-            <p>taryllngam@gmail.com</p>
-          </div>
-          <button
+            <h2>
+              <span>NAME:</span> {Data.firstName} {Data.lastName}
+            </h2>
+            <p>
+              <span>EMAIL:</span> {Data.email}
+            </p>
+            <button
             className="profileBtn"
             onClick={() => setShowForm((prev) => !prev)}
           >
             Edit Profile
           </button>
+          </div>
+      
         </div>
-
+        <div className="blur">
         {showForm && (
           <form className="updateForm" action="submit">
             <input type="text" name="name" placeholder="User Name" />
@@ -306,9 +313,9 @@ export default function Admin() {
                   <img
                     src={foodStorage.image}
                     alt={foodStorage.name}
-                    className="card h-24 items-center mx-auto"
+                    className="food-image"
                   />
-                  <h3 className="fItern text-yellow-600">
+                  <h3 className="">
                     <span>NAME: </span>
                     {foodStorage.name}
                   </h3>
@@ -330,6 +337,7 @@ export default function Admin() {
           </div>
         </>
       </div>
+    </div>
     </div>
   );
 }

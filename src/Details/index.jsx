@@ -11,10 +11,9 @@ export default function Details() {
   const { value } = useContext(FoodContext);
   const [currentFood, setcurrentFood] = useState();
 
-
   useEffect(() => {
     const food = value.find((ele) => ele.id === +params.id);
-    setcurrentFood(food)
+    setcurrentFood(food);
     console.log(food, params);
   }, []);
 
@@ -25,12 +24,15 @@ export default function Details() {
           <img src={currentFood?.image} />
         </div>
         <div className="description">
-          <h1 className="names"> {currentFood?.name}</h1>
+          <h1 className="names">
+            <span>NAME:</span> {currentFood?.name}
+          </h1>
           <h1>
             {" "}
-            <span className="describe">DESCRIPTION:</span> {currentFood?.description}
+            <span className="describe">DESCRIPTION:</span>{" "}
+            {currentFood?.description}
           </h1>
-          <h1 className="price">PRICE: {currentFood?.price}</h1>
+          <h1 className="price">PRICE: ${currentFood?.price}</h1>
           <button
             onClick={() => {
               navigate(`/payment/${params.id}`);
