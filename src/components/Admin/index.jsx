@@ -100,6 +100,7 @@ import { GiCancel } from "react-icons/gi";
 import { Navigate, useNavigate } from "react-router";
 import { FoodContext } from "../../context/FoodContext";
 import "../Admin/style.css";
+import Nav from "../Navbar";
 export default function Admin() {
   const { value, setValue } = useContext(FoodContext);
 
@@ -189,8 +190,10 @@ export default function Admin() {
   }, [value]);
 
   return (
+    <>
+    <Nav />
     <div className="admin-dashboard">
-     
+
       <div className="profile-section">
         <div className="profile">
           <img src={Data.image} alt="" className="avatar" />
@@ -202,142 +205,137 @@ export default function Admin() {
               <span>EMAIL:</span> {Data.email}
             </p>
             <button
-            className="profileBtn"
-            onClick={() => setShowForm((prev) => !prev)}
-          >
-            Edit Profile
-          </button>
-          </div>
-      
-        </div>
-        <div className="blur">
-        {showForm && (
-          <form className="updateForm" action="submit">
-            <input type="text" name="name" placeholder="User Name" />
-
-            <input type="email" name="email" placeholder="change email" />
-
-            <input type="file" name="picture" />
-            <div>
-              <button className="profileBtn">Update</button>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  setShowForm((prev) => !prev);
-                }}
-              >
-                {" "}
-                <GiCancel />{" "}
-              </button>
-            </div>
-          </form>
-        )}
-      </div>
-
-      <div>
-        <div>
-          <div className="dashboard">
-            <h1>Dashboard</h1>
-
-            <button
-              className="addBtn"
-              onClick={() => setShowAddForm(!showAddForm)}
+              className="profileBtn"
+              onClick={() => setShowForm((prev) => !prev)}
             >
-              Add Product
+              Edit Profile
             </button>
           </div>
+
+        </div>
+        <div className="blur">
+          {showForm && (
+            <form className="updateForm" action="submit">
+              <input type="text" name="name" placeholder="User Name" />
+
+              <input type="email" name="email" placeholder="change email" />
+
+              <input type="file" name="picture" />
+              <div>
+                <button className="profileBtn">Update</button>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowForm((prev) => !prev);
+                  } }
+                >
+                  {" "}
+                  <GiCancel />{" "}
+                </button>
+              </div>
+            </form>
+          )}
         </div>
 
-        {showAddForm && (
-          <form action="" className="addProductForm" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={foodStorage.name}
-              onChange={handleChange}
-              placeholder="Product Name"
-            />
-
-            <input
-              type="number"
-              id="price"
-              name="price"
-              value={foodStorage.price}
-              onChange={handleChange}
-              placeholder="Price"
-            />
-
-            <input
-              type="file"
-              id="image"
-              name="image"
-              className="fileupload"
-              onChange={(e) => uploadImage(e)}
-              placeholder="Product Image"
-            />
-
-            <textarea
-              name="detials"
-              id="details"
-              value={foodStorage.detials}
-              onChange={handleChange}
-              cols="60"
-              rows="5"
-            >
-              Product details...
-            </textarea>
-            <div className="fBtn flex justify-between">
-              <button className="addBt" type="submit">
-                Add
-              </button>
+        <div>
+          <div>
+            <div className="dashboard">
+              <h1>Dashboard</h1>
 
               <button
-                className="addBt"
+                className="addBtn"
                 onClick={() => setShowAddForm(!showAddForm)}
               >
-                cancel
+                Add Product
               </button>
             </div>
-          </form>
-        )}
-        <>
-          <div className="foodCards ">
-            {localData?.map((foodStorage) => {
-              // handle click navigation to product detail page.
-              // const handDitails = () =>{(onClick) => {
-              //   Navigate(`/details/${foodStorage.id}`)}}
-
-              return (
-                <div key={foodStorage.name} className="catalog">
-                  <img
-                    src={foodStorage.image}
-                    alt={foodStorage.name}
-                    className="food-image"
-                  />
-                  <h3 className="">
-                    <span>NAME: </span>
-                    {foodStorage.name}
-                  </h3>
-                  <p>
-                    <span>PRICE: </span>${foodStorage.price}
-                  </p>
-                  <p>
-                    <span>DESCRIPTION: </span>
-                    {foodStorage.detials}
-                  </p>
-                  <div className="flex  justify-between">
-                    <button className="cardBtn" onClick={handleDelete}>
-                      Delete
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
           </div>
-        </>
+
+          {showAddForm && (
+            <form action="" className="addProductForm" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={foodStorage.name}
+                onChange={handleChange}
+                placeholder="Product Name" />
+
+              <input
+                type="number"
+                id="price"
+                name="price"
+                value={foodStorage.price}
+                onChange={handleChange}
+                placeholder="Price" />
+
+              <input
+                type="file"
+                id="image"
+                name="image"
+                className="fileupload"
+                onChange={(e) => uploadImage(e)}
+                placeholder="Product Image" />
+
+              <textarea
+                name="detials"
+                id="details"
+                value={foodStorage.detials}
+                onChange={handleChange}
+                cols="60"
+                rows="5"
+              >
+                Product details...
+              </textarea>
+              <div className="fBtn flex justify-between">
+                <button className="addBt" type="submit">
+                  Add
+                </button>
+
+                <button
+                  className="addBt"
+                  onClick={() => setShowAddForm(!showAddForm)}
+                >
+                  cancel
+                </button>
+              </div>
+            </form>
+          )}
+          <>
+            <div className="foodCards ">
+              {localData?.map((foodStorage) => {
+                // handle click navigation to product detail page.
+                // const handDitails = () =>{(onClick) => {
+                //   Navigate(`/details/${foodStorage.id}`)}}
+                return (
+                  <div key={foodStorage.name} className="catalog">
+                    <img
+                      src={foodStorage.image}
+                      alt={foodStorage.name}
+                      className="food-image" />
+                    <h3 className="">
+                      <span>NAME: </span>
+                      {foodStorage.name}
+                    </h3>
+                    <p>
+                      <span>PRICE: </span>${foodStorage.price}
+                    </p>
+                    <p>
+                      <span>DESCRIPTION: </span>
+                      {foodStorage.detials}
+                    </p>
+                    <div className="flex  justify-between">
+                      <button className="cardBtn" onClick={handleDelete}>
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        </div>
       </div>
-    </div>
-    </div>
+    </div></>
   );
 }

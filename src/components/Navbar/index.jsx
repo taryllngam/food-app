@@ -9,7 +9,7 @@ import { Admin } from "../Admin"
     return (
         <div className="navBar">
         <div className="app-nav">
-          <a href="#home">Home</a>
+          <Link to='/'>Home</Link>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
           <Link to='signup'>Admin</Link>
