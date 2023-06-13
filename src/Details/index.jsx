@@ -30,7 +30,7 @@ export default function Details() {
           <h1>
             {" "}
             <span className="describe">DESCRIPTION:</span>{" "}
-            {currentFood?.description}
+            {currentFood?.details}
           </h1>
           <h1 className="price">PRICE: ${currentFood?.price}</h1>
           <button

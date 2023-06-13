@@ -14,13 +14,14 @@ export default function Footer() {
       <div className='socials'>
         <div><h1>FOLLOW US</h1></div>
         <div className='social'>
-      <AiFillFacebook/>
-      <AiFillInstagram/>
-      <AiFillTwitterSquare/>
-      <AiFillLinkedin/>
-      <FaSnapchatSquare/>
+      <a href=""><AiFillFacebook/></a>
+      <a href=""><AiFillInstagram/></a>
+      <a href=""><AiFillTwitterSquare/></a>
+      <a href=""><AiFillLinkedin/></a>
+      <a href=""><FaSnapchatSquare/></a>
       </div>
       </div>
     </div>
   )
 }
+

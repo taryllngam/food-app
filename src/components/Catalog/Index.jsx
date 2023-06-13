@@ -22,15 +22,15 @@ export default function Catalog() {
 			{value?.map((food) => {
 				return (
 					
-					<div className="foods" key={food.name} onClick={() => {
-						navigate(`/details/${food.id}`)
-					}}>
+					<div className="foods" key={food.name} >
 					<div className="food" key={food.id}>
 						<div className="foodStuffs">
 						<img src={food.image} alt="" />
 						<p>NAME: {food.name}</p>
 						<p>PRICE:{food.price}</p>
-						<button className="btn" >Details</button>
+						<button className="btn" onClick={() => {
+						navigate(`/details/${food.id}`)
+					}} >Details</button>
 						</div>
 					</div>
 					</div>

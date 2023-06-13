@@ -113,7 +113,7 @@ export default function Admin() {
     name: "",
     price: "",
     image: "",
-    detials: "",
+    details: "",
   });
   const Data = JSON.parse(localStorage.getItem("userInfo"));
   console.log(Data);
@@ -148,16 +148,16 @@ export default function Admin() {
     setfoodStorage((prev) => ({ ...prev, image: base64 }));
   };
 
-  const handleDelete = (name) => {
-    const localData = JSON.parse(localStorage.getItem("foodStorage"));
-    localStorage.setItem("localData", JSON.stringify('setfoodStorage'));
+  // const handleDelete = (name) => {
+  //   const localData = JSON.parse(localStorage.getItem("foodStorage"));
+  //   localStorage.setItem("localData", JSON.stringify('setfoodStorage'));
 
-    const update = localData?.filter((item) => {
-      return item.name !== name;
-    });
-    localStorage.setItem("setfoodStorage", JSON.stringify(update));
-    setValue("");
-  };
+  //   const update = localData?.filter((item) => {
+  //     return item.name !== name;
+  //   });
+  //   localStorage.setItem("setfoodStorage", JSON.stringify(update));
+  //   setValue("");
+  // };
 
   const clearForm = (event) => {
     const image = event.target.image;
@@ -166,16 +166,21 @@ export default function Admin() {
       name: "",
       price: "",
       image: "",
-      detials: "",
+      details: "",
     });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("this item", foodStorage);
-    setValue(foodStorage);
-    // const localData = JSON.parse(localStorage.getItem("foodStorage")) || [];
-    // console.log(localData);
+    const localData = JSON.parse(localStorage.getItem("foodStorage")) || [];
+
+    const newId = localData.length > 0 ? localData[localData.length - 1].id + 1 : 1;
+    // console.clear();
+  
+    // console.log(localData, newId);
+
+    setValue({...foodStorage, id: newId});
 
     // localStorage.setItem(
     //   "foodStorage",
@@ -278,9 +283,9 @@ export default function Admin() {
                 placeholder="Product Image" />
 
               <textarea
-                name="detials"
+                name="details"
                 id="details"
-                value={foodStorage.detials}
+                value={foodStorage.details}
                 onChange={handleChange}
                 cols="60"
                 rows="5"
@@ -325,7 +330,7 @@ export default function Admin() {
                       {foodStorage.detials}
                     </p>
                     <div className="flex  justify-between">
-                      <button className="cardBtn" onClick={handleDelete}>
+                      <button className="cardBtn">
                         Delete
                       </button>
                     </div>

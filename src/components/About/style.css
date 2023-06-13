@@ -45,7 +45,7 @@
 }
 
 .decor h2 {
-    @apply relative text-white text-xl
+    @apply relative text-white text-7xl
 }
 
 .about p {

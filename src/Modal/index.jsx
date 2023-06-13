@@ -31,7 +31,7 @@ export default function Modal({ visible, setVisible }) {
                 </div>
                 <div>
                   <h1 className="names">NAME: {food?.name}</h1>
-                  <h1 className="price">PRICE: {food?.price}</h1>
+                  <h1 className="price">PRICE: ${food?.price}</h1>
                 </div>
               </div>
             </div>

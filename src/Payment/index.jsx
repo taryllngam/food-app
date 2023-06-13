@@ -29,7 +29,9 @@ export default function Payment() {
         </div>
         <div className='card-dets'>
         <span>CARD NUMBER</span>
-      <input {...getCardNumberProps({  })}/>
+      <input {...getCardNumberProps({  })}
+         placeholder="0000 0000 0000 0000"
+      />
       </div>
       <div className='card-dets'>
         <span>EXPIRY DATE</span>
@@ -37,9 +39,8 @@ export default function Payment() {
       </div>
       <div className='card-dets'>
       <span>CV</span> 
-      <input {...getCVCProps({  })}  />
+      <input {...getCVCProps({  })} />
       </div>
-      {meta.isTouched && meta.error && <span>Error: {meta.error}</span>}
       <button      onClick={() => {
               navigate(`/billing/${id}`);
             }}>Submit</button>
