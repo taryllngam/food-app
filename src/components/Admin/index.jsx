@@ -102,8 +102,7 @@ import { FoodContext } from "../../context/FoodContext";
 import "../Admin/style.css";
 import Nav from "../Navbar";
 export default function Admin() {
-  const { value, setValue } = useContext(FoodContext);
-
+  const { value, setValue } = useLocalStorage("foodStorage", []);
   const [localData, setLocalData] = useState(value);
   const navigate = useNavigate;
   const [showForm, setShowForm] = useState(false);
