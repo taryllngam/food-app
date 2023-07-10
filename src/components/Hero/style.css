@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 .container1 {
+    width: 100vw;
     @apply mt-20 flex gap-2 
 }
 
@@ -13,7 +14,7 @@
 }
 
 .container1  {
-    margin: 5rem;
+    margin: 3rem 5rem;
     @apply text-xl text-red-400 
 }
 
@@ -32,5 +33,12 @@
 }
 
 .hero-image {
-    width: 50vw;
+    width: 40vw;
+
+}
+
+@media screen and (max-width: 600px) {
+    .hero-image {
+
+    }
 }

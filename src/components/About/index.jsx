@@ -13,7 +13,7 @@ export default function About() {
                 <div className='about-head'><h1 className='about-header'>Welcome to <FaUtensils className="food" />  Restoran</h1></div>
                 <div className='disect'>
                     <div>
-                    <img src={ chef } alt="" />
+                    <img id='about-img' src={ chef } alt="" />
                     </div>
                 <p>“Welcome to Restoran” is a common greeting that customers receive when entering a restaurant, typically followed by a friendly welcome and an invitation to be seated.
 

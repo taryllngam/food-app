@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
+* {
+    margin: 0;
+    padding: 0;
+}
 
 .admin-dashboard {
     height: 100vh;
@@ -61,4 +64,11 @@
 
 .blur {
     backdrop-filter: blur(5px);
+}
+
+
+@media screen and (max-width: 600px) {
+    nav {
+        visibility: none;
+    }
 }

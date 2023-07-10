@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    @layer scroll-m-0 croll-p-0;
+  }
+
 .food img {
     @apply w-80	h-52
 }
@@ -11,7 +15,7 @@
 }
 
 .wrap {
-    @apply flex flex-wrap gap-9 justify-between mx-9 pb-20  
+    @apply flex flex-wrap gap-9 justify-evenly mx-9 pb-20  
 }
 
 .food .foodStuffs{
@@ -39,4 +43,13 @@ border-radius: 4%;
 
 .nameTag {
     @apply relative text-white
+}
+
+
+.head {
+    width: 100vw;
+}
+
+@media screen and (max-width: 600px) {
+
 }
