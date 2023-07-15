@@ -41,7 +41,7 @@ export default function Payment() {
       <span>CV</span> 
       <input {...getCVCProps({  })} />
       </div>
-      <button      onClick={() => {
+      <button  id='but1'    onClick={() => {
               navigate(`/billing/${id}`);
             }}>Submit</button>
     </div>

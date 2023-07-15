@@ -57,3 +57,23 @@
 .pays {
     @apply	 text-orange-400
 }
+
+@media screen and (max-width: 600px){
+    .cards {
+        display: flex;
+        gap: 0.8rem;
+    }
+
+    .pays {
+        display: flex;
+        flex-direction: row;
+        gap: 0.3rem;
+        font-size: 20px;
+        @apply	 text-orange-400
+    }
+
+    .cards h1 {
+        font-size: 0.8rem;
+    }
+    
+}

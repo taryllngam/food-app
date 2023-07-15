@@ -98,7 +98,7 @@ import { useContext } from "react";
 import { useState } from "react";
 import { GiCancel } from "react-icons/gi";
 import { Navigate, useNavigate } from "react-router";
-import { FoodContext } from "../../context/FoodContext";
+import { FoodContext, useLocalStorage } from "../../context/FoodContext";
 import "../Admin/style.css";
 import Nav from "../Navbar";
 export default function Admin() {

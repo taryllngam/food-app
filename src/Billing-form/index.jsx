@@ -108,7 +108,7 @@ export default function Billing(){
 
 
 
-      <button type="submit" className='buton'>Submit</button>
+      <button id='but1' type="submit" className='buton'>Submit</button>
     </form>
     </div>
   );

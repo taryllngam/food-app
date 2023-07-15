@@ -33,7 +33,7 @@ export default function Details() {
             {currentFood?.details}
           </h1>
           <h1 className="price">PRICE: ${currentFood?.price}</h1>
-          <button
+          <button id="but1"
             onClick={() => {
               navigate(`/payment/${params.id}`);
             }}

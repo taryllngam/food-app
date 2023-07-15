@@ -7,6 +7,10 @@
     padding: 0;
 }
 
+footer {
+    width: 100vw; 
+}
+
 .foot {
     width: 100vw;
     display: flex;
