@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Model from "react-modal";
 import { useNavigate } from "react-router";
 import "../Modal/style.css";
@@ -11,7 +11,7 @@ export default function Modal({ visible, setVisible }) {
   const navigate = useNavigate();
   let { id } = useParams();
   const { value } = useContext(FoodContext);
-  const food = value.find((ele) => ele.id == id);
+  const food = value.find((ele) => ele.id === +id);
   console.log(id);
 
   return (
@@ -27,7 +27,7 @@ export default function Modal({ visible, setVisible }) {
             <div className="container3">
               <div>
                 <div className="images">
-                  <img src={food?.image} />
+                  <img src={food?.image} alt={food?.name + "name"} />
                 </div>
                 <div>
                   <h1 className="names">NAME: {food?.name}</h1>

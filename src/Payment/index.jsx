@@ -1,18 +1,16 @@
-import React, { useContext } from 'react';
 import { usePaymentInputs } from 'react-payment-inputs';
 import '../Payment/style.css'
 import { FaCcVisa, FaCcMastercard, FaCcAmex, FaCcJcb, FaCcDiscover } from 'react-icons/fa';
 import { useNavigate } from 'react-router';
 import { useParams } from "react-router-dom";
-import { FoodContext } from "../context/FoodContext";
 
 
 export default function Payment() {
-  const { meta, getCardNumberProps, getExpiryDateProps, getCVCProps } = usePaymentInputs();
+  const { getCardNumberProps, getExpiryDateProps, getCVCProps } = usePaymentInputs();
   let { id } = useParams();
   const navigate = useNavigate();
-	const {value} = useContext(FoodContext)
-  const food =value.find((ele) => ele.id == id);
+	// const {value} = useContext(FoodContext)
+  // const food =value.find((ele) => ele.id == id);
 
   return (
     <div className='dets'>

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import '../Billing-form/style.css'
 import Modal from '../Modal';
-import Payment from '../Payment';
 
 
 
