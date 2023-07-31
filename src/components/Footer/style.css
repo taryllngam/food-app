@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
-footer {
-    width: 100vw; 
-}
-
-.foot {
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
 .foot {
     @apply	p-4	bg-red-400		text-white text-xl
 }
@@ -26,19 +10,23 @@ footer {
     @apply			text-white text-2xl
 }
 
-.socials .social{
-    display: flex;
-    flex-direction: row;
-    gap: 3rem;
-    justify-content: center;
-    padding-top: 1rem;
-    font-size: 40px; 
-}
-
-.socials .social a:hover{
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.5) 0px 4px 6px, rgba(0, 0, 0, 0.5) 0px 12px 13px, rgba(0, 0, 0, 0.5) 0px -3px 5px;
-    transition: 0.6s;
-}
+* {
+    @apply m-0 p-0;
+  }
+  footer {
+    @apply w-screen;
+  }
+  .foot {
+    @apply w-screen flex flex-row justify-between;
+  }
+  
+.socials .social {
+    @apply flex flex-row gap-12 justify-center text-[40px] pt-4;
+  }
+  .socials .social a:hover {
+    @apply shadow-[rgba(0,0,0,0.5)_0px_54px_55px,rgba(0,0,0,0.12)_0px_-12px_30px,rgba(0,0,0,0.5)_0px_4px_6px,rgba(0,0,0,0.5)_0px_12px_13px,rgba(0,0,0,0.5)_0px_-3px_5px] transition-[0.6s];
+  }
+  
 
 @media screen and (max-width: 600px) {
     .foot {

@@ -22,18 +22,6 @@
   @apply text-xl  p-4  text-black;
 }
 
-.food .foodStuffs {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 4%;
-}
-
-.food .foodStuffs:hover {
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 54px 75px,
-    rgba(0, 0, 0, 0.2) 0px -12px 60px, rgba(0, 0, 0, 0.2) 0px 4px 6px,
-    rgba(0, 0, 0, 0.2) 0px 12px 13px, rgba(0, 0, 0, 0.5) 0px -3px 5px;
-  transition: 0.6s;
-}
-
 .btn {
   @apply border  border-yellow-800 rounded p-2 bg-red-400;
 }
@@ -46,25 +34,25 @@
   @apply relative text-white;
 }
 
+.food .foodStuffs {
+  @apply shadow-[rgba(0,0,0,0.35)_0px_5px_15px] rounded-[4%] hover:shadow-[rgba(0,0,0,0.5)_0px_54px_75px,rgba(0,0,0,0.2)_0px_-12px_60px,rgba(0,0,0,0.2)_0px_4px_6px,rgba(0,0,0,0.2)_0px_12px_13px,rgba(0,0,0,0.5)_0px_-3px_5px] hover:transition-[0.6s];
+}
 .head {
-  width: 100vw;
+  @apply w-screen;
 }
 
 @media screen and (max-width: 600px) {
-
-    button {
-        width: 3rem;
-    }
-    
   .btn {
-    width: 5rem;
-    justify-self: center;
-    align-self: center;
     @apply border  border-yellow-800 rounded  bg-red-400;
   }
 
+  button {
+    @apply w-12;
+  }
+  .btn {
+    @apply w-20 justify-self-center self-center;
+  }
   .food img {
-    width: 25rem;
-    height: 8rem;
+    @apply w-[25rem] h-32;
   }
 }

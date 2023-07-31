@@ -2,73 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
-.admin-dashboard {
-    height: 100vh;
-    widht: 100vw;
-    display: flex;
-    flex-direction: row;
-    gap: 10%;
-}
-
-.profile-section {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
 .profile {
-    height: 50vh;
-    width: 100vw;
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-    @apply	p-4	bg-red-400		text-white text-xl
-
-}
-
-.avatar {
-    width: 20vw;
-}
-
-
-.food-image {
-    width: 15vw; 
+  @apply p-4	bg-red-400		text-white text-xl;
 }
 
 .foodCards {
-    @apply flex flex-wrap gap-3 justify-between mx-9 pt-20  
-}
+    @apply flex flex-wrap gap-3 justify-between mx-9 pt-20;
+  }
 
-.catalog {
-    padding: 2%;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width: 20vw;
-}
+  .dashboard {
+    @apply p-4			text-black text-xl;
+  }
 
-
-.dashboard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.dashboard {
-    @apply	p-4			text-black text-xl
-}
-
-.blur {
-    backdrop-filter: blur(5px);
-}
-
-
+* {
+    @apply m-0 p-0;
+  }
+  .admin-dashboard {
+    @apply h-screen flex flex-row gap-[10%];
+    widht: 100vw;
+  }
+  .profile-section {
+    @apply w-screen h-screen flex flex-col;
+  }
+  .profile {
+    @apply h-[50vh] w-screen flex gap-5 flex-col;
+  }
+  .avatar {
+    @apply w-[20vw];
+  }
+  .food-image {
+    @apply w-[15vw];
+  }
+  .catalog {
+    @apply shadow-[rgba(0,0,0,0.35)_0px_5px_15px] w-[20vw] p-[2%];
+  }
+  .dashboard {
+    @apply flex flex-col items-center;
+  }
+  .blur {
+    @apply backdrop-blur-[5px];
+  }
+  
 @media screen and (max-width: 600px) {
-    nav {
-        visibility: none;
-    }
+  nav {
+    visibility: none;
+  }
 }
