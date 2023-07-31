@@ -98,7 +98,11 @@ import { useState } from "react";
 import { GiCancel } from "react-icons/gi";
 import { useLocalStorage } from "../../context/FoodContext";
 import "../Admin/style.css";
-import Nav from "../Navbar";
+import { FaUtensils } from 'react-icons/fa';
+import { Link } from "react-router-dom";
+
+
+
 export default function Admin() {
   const { value, setValue } = useLocalStorage("foodStorage", []);
   const [localData, setLocalData] = useState(value);
@@ -121,6 +125,8 @@ export default function Admin() {
       [name]: value,
     }));
   };
+
+
 
   const convert2base64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -192,7 +198,12 @@ export default function Admin() {
 
   return (
     <>
-    <Nav />
+      <div className="navBar">
+        <div className="app-nav">
+          <Link to='/'>Home</Link>
+          <FaUtensils className="food" />
+        </div>
+      </div>
     <div className="admin-dashboard">
 
       <div className="profile-section">
@@ -200,10 +211,10 @@ export default function Admin() {
           <img src={Data.image} alt="" className="avatar" />
           <div>
             <h2>
-              <span>NAME:</span> {Data.firstName} {Data.lastName}
+              <span></span> {Data.firstName} {Data.lastName}
             </h2>
             <p>
-              <span>EMAIL:</span> {Data.email}
+              <span></span> {Data.email}
             </p>
             <button
               className="profileBtn"
@@ -325,8 +336,8 @@ export default function Admin() {
                       <span>DESCRIPTION: </span>
                       {foodStorage.detials}
                     </p>
-                    <div className="flex  justify-between">
-                      <button className="cardBtn">
+                    <div className="flex  justify-center pt-12">
+                      <button className="cardBtn" >
                         Delete
                       </button>
                     </div>

@@ -28,7 +28,8 @@
     @apply h-[50vh] w-screen flex gap-5 flex-col;
   }
   .avatar {
-    @apply w-[20vw];
+    @apply w-[20vw] h-40  shadow-[rgba(50,50,93,0.25)_0px_50px_100px_-20px,rgba(0,0,0,0.3)_0px_30px_60px_-30px,rgba(10,37,64,0.35)_0px_-2px_6px_0px_inset];
+
   }
   .food-image {
     @apply w-[15vw];
