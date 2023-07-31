@@ -2,63 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.data {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    background-image:  url('../assets/food.png');
-    background-size: cover;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    gap: 20px;
-    border: 1px solid black;
-    padding: 10%;
-    opacity: 90%;
-    background:linear-gradient(to right, #DECBA4, #3E5151);
-}
-
 .headtag {
-    @apply  before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-orange-400 relative inline-block 
+  @apply before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-orange-400 relative inline-block;
 }
-
 h1 {
-    @apply relative text-black   text-xl 
+  @apply relative text-black   text-xl;
 }
 
+* {
+  @apply box-border m-0 p-0;
+}
+.data {
+  @apply flex items-center justify-center h-screen w-screen bg-[url('../assets/food.png')] bg-cover;
+}
+form {
+  @apply flex flex-col items-center justify-center gap-5 border opacity-[90%] m-auto p-[10%] border-solid border-[black];
+  background: linear-gradient(to right, #decba4, #3e5151);
+}
 input {
-    width: 40vw;
-    height: 5vh;
-    border: 1px solid black;
-    padding-left: 3%;
+  @apply w-[40vw] h-[5vh] border pl-[3%] border-solid border-[black];
 }
-
 .display2 {
-    display: flex;
-    flex-direction: column;
+  @apply flex flex-col;
 }
-
 button {
-    border: 1px solid black;
-    width: 10vw;
-    padding: 1%;
-  
+  @apply border w-[10vw] p-[1%] border-solid border-[black];
 }
-
 label {
-    font-size: 25px;
+  @apply text-[25px];
 }
-

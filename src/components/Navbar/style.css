@@ -6,27 +6,23 @@
   @layer scroll-m-0 croll-p-0;
 }
 
-.navBar {
-  width: 100vw;
-}
 .app-nav {
   @apply h-16  flex flex-row  gap-20  items-center justify-end	pr-9	bg-red-400		text-white text-xl;
 }
 
+.navBar {
+  @apply w-screen;
+}
 .app-nav {
-  width: 100vw;
+  @apply w-screen;
 }
-
 .food {
-  font-size: 80%;
+  @apply text-[80%];
+}
+.app-nav a:hover {
+  @apply shadow-[rgba(0,0,0,0.25)_0px_54px_55px,rgba(0,0,0,0.12)_0px_-12px_30px,rgba(0,0,0,0.12)_0px_4px_6px,rgba(0,0,0,0.17)_0px_12px_13px,rgba(0,0,0,0.09)_0px_-3px_5px] px-[9px] py-1.5;
 }
 
-.app-nav a:hover {
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  padding: 6px 9px;
-}
 
 @media screen and (max-width: 600px) {
   .app-nav {

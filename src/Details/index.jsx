@@ -15,7 +15,7 @@ export default function Details() {
     const food = value.find((ele) => ele.id === +params.id);
     setcurrentFood(food);
     console.log(food, params);
-  }, [currentFood]);
+  }, [value, params]);
 
   return (
     <div className="display">
